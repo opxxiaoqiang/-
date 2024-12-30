@@ -1,6 +1,8 @@
 import { defineConfig } from 'vitepress'
-import { nav, sidebar, head, socialLinks } from './configs'
+
 import { footnote } from '@mdit/plugin-footnote'
+
+import { head, nav, sidebar, socialLinks } from './configs'
 
 export default defineConfig({
   // 站点名称
@@ -21,6 +23,13 @@ export default defineConfig({
   // 站点地图
   sitemap: {
     hostname: 'https://xx.theojs.cn'
+  },
+
+  // vue配置
+  vue: {
+    template: {
+      compilerOptions: { isCustomElement: (tag) => tag === 'iconify-icon' }
+    }
   },
 
   // markdown-it插件配置
